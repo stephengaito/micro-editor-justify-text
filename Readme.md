@@ -50,6 +50,6 @@ When installed you should have (at a minimum) the following files:
 
 On a Linux machine you can use the bash script:
 
-  bin/install
+    ./bin/install
 
-to install reWrapText for your use.
+in this directory to install reWrapText for your use.
