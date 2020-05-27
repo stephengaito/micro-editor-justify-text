@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# This bash script installs the micro editor reWrapText plugin.
+
+mkdir -p $HOME/.config/micro/reWrapText/help
+
+cp reWrapText.lua     $HOME/.config/micro/reWrapText
+cp help/reWrapText.md $HOME/.config/micro/reWrapText/help

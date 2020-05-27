@@ -1,0 +1,13 @@
+[{
+  "Name": "reWrapText",
+  "Description": "(re)Wrap a block of text",
+  "Website": "https://github.com/stephengaito/microReWrapText",
+  "Tags": ["rewrap", "justify"],
+  "Versions": [{
+    "Version": "1.0.0",
+    "Url": "https://github.com/stephengaito/microReWrapText",
+    "Require": {
+      "micro": ">=2.0.3"
+    }
+  }]
+}]
