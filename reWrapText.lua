@@ -347,6 +347,10 @@ end
 function reWrapText(bp, args)
   local firstLine, lastLine, indentEnd, blockCommentMarker, indentedCommentEnd =
     determineBlockStructure(bp)
+  if firstLine == nil then
+    bp.Cursor:UpN(-1)
+    return
+  end
   local someLines = {}
   local curLine = firstLine
   while curLine <= lastLine do
@@ -380,6 +384,7 @@ function reWrapText(bp, args)
     buffer.Loc(#lastLineStr, lastLine),
     newText
   )
+  bp.Cursor:UpN(-1)
 end
 
 -- Initialize the reWrapText plugin
