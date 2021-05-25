@@ -7,6 +7,16 @@ local util   = import("micro/util")
 local config = import("micro/config")
 local buffer = import("micro/buffer")
 
+--[=[
+local tmpName = os.time()
+local logFile = io.open("/tmp/microLog-"..tmpName, 'w')
+
+function logMsg(msg) 
+  logFile:write(msg.."\n")
+  logFile:flush()
+end
+]=]
+
 -- Protect a micro.Log from appending nil values to strings...
 --
 function mayBeNil(mesg)
@@ -23,8 +33,10 @@ function findCommentMarker(possibleCommentMarker)
   local commentMarkers = 
     config.GetGlobalOption("reWrapText.commentLineMarkers")
   for aStr in commentMarkers:gmatch("(%S+)") do
-    commentMarker = possibleCommentMarker:find(aStr,1,true)
-    if commentMarker ~= nil then
+    startCommentIndex, endCommentIndex = 
+      possibleCommentMarker:find(aStr,1,true)
+    if endCommentIndex ~= nil and 
+       endCommentIndex == possibleCommentMarker:len() then
       return possibleCommentMarker
     end
   end
